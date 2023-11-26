@@ -1,22 +1,29 @@
 "use client";
 
-import { useState } from "react";
+import { useRouter } from "next/navigation";
 
-const About = ({ hell }) => {
-  return <h1>About Me {hell}</h1>;
-};
 export default function Home() {
-  const [state, setState] = useState("");
-  const alertty = () => {
-    alert("hello world!!!!");
-    setState("hello");
+  const router = useRouter();
+  const navigate = (name) => {
+    router.push(name);
   };
+  // const [state, setState] = useState("");
+  // const alertty = () => {
+  //   setState("hello");
+  // };
   return (
     <main className="flex min-h-screen flex-col items-center justify-center">
-      Hello World !!!
-      <About hell={"hello"} />
-      <button onClick={() => alertty()}>Click Me</button>
-      {state && state}
+      Home Page
+      {/* <button onClick={() => alertty()}>Click Me</button> */}
+      {/* {state && state} */}
+      {/* <Link href={"/login"}>Login</Link>
+      <Link href={"/about"}>About</Link> */}
+      <button onClick={() => navigate("/login")}>Go to Login Page</button>
+      <button onClick={() => navigate("/about")}>Go to About Page</button>
+      <button onClick={() => navigate("/study")}>Go to Study Page</button>
+      <button onClick={() => navigate("/studentList")}>
+        Go to Student Page
+      </button>
     </main>
   );
 }
