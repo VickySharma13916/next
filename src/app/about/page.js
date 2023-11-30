@@ -12,3 +12,10 @@ const About = () => {
 };
 
 export default About;
+
+export function generateMetadata({ params }) {
+  return {
+    title: "About Us Next.js",
+    description: "About Us Description",
+  };
+}
